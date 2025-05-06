@@ -1,0 +1,22 @@
+#!/bin/sh
+
+grep() {
+	command rg --line-number "$@"
+}
+
+fzf() {
+	command fzf \
+		--no-multi \
+		--layout=reverse \
+		--color=16 \
+		--delimiter=':' \
+		--nth='2..' \
+		--preview-window='down,70%,+{2}-/2' \
+		--preview='bat --paging=never --color=always -H {2} {1}' \
+		--bind 'ctrl-e:execute(e +{2} {1} </dev/tty)' \
+		--bind 'ctrl-p:execute(p +{2} {1} </dev/tty)' \
+		#
+}
+
+: ${1?}
+grep "$@" | fzf
