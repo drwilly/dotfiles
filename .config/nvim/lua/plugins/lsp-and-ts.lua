@@ -8,9 +8,14 @@ return {
 		config = function()
 			require('mason').setup {}
 
+			-- Install default language servers
+			require('mason-lspconfig').setup {
+				ensure_installed = { 'basedpyright', 'lua_ls' },
+			}
+
 			-- Setup language servers.
 			local lspconfig = require('lspconfig')
-			require("lspconfig").basedpyright.setup {
+			lspconfig.basedpyright.setup {
 				settings = {
 					basedpyright = {
 						analysis = {
@@ -41,7 +46,7 @@ return {
 				},
 			}
 			lspconfig.salt_ls.setup {
-				cmd = { "salt-lsp" },
+				cmd = { 'salt-lsp' },
 			}
 			lspconfig.yamlls.setup {}
 		end,
@@ -86,13 +91,13 @@ return {
 				},
 				-- Installed sources:
 				sources = {
-					{ name = 'path' },               -- file paths
+					{ name = 'path' },                             -- file paths
 					{ name = 'nvim_lsp',               keyword_length = 3 }, -- from language server
-					{ name = 'nvim_lsp_signature_help' }, -- display function signatures with current parameter emphasized
+					{ name = 'nvim_lsp_signature_help' },          -- display function signatures with current parameter emphasized
 					{ name = 'nvim_lua',               keyword_length = 2 }, -- complete neovim's Lua runtime API such vim.lsp.*
 					{ name = 'buffer',                 keyword_length = 2 }, -- source current buffer
 					{ name = 'vsnip',                  keyword_length = 2 }, -- nvim-cmp source for vim-vsnip
-					{ name = 'calc' },               -- source for math calculation
+					{ name = 'calc' },                             -- source for math calculation
 				},
 				window = {
 					completion = cmp.config.window.bordered(),
