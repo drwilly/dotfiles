@@ -1,3 +1,9 @@
 #!/bin/sh
-export LESSOPEN="| bat --color=always --paging=never --style=plain --wrap=never %s"
-exec less -R "$@"
+
+if command -v bat >/dev/null
+then
+	export LESSOPEN="| bat --color=always --paging=never --style=plain --wrap=never %s"
+	export LESS="$LESS -R"
+fi
+
+exec less "$@"
