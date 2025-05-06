@@ -1,0 +1,35 @@
+[include]
+	path = config.delta
+	path = config.difftastic
+	path = config.lfs
+	path = config.meld
+	path = config.mergiraf
+[user]
+	useConfigOnly = true
+	name = Wilke Schwiedop
+	email = drwilly@drwilly.de
+	signingkey = 1624DDFD
+[alias]
+	st = status
+	root = rev-parse --show-toplevel
+[commit]
+	verbose = true
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[init]
+	defaultBranch = master
+[merge]
+	conflictStyle = zdiff3
+[pull]
+	rebase = true
+[rebase]
+	autoSquash = true
+	updateRefs = true
+[sendemail]
+	smtpserver = msmtp
+	annotate = true
+[tag]
+	sort = version:refname

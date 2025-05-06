@@ -1,0 +1,24 @@
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	features = line-numbers
+	navigate = true
+	paging = always
+	hyperlinks-file-link-format = file-line-column://{path}:{line}
+	# solarized dark
+	syntax-theme = none
+	minus-style = red
+	minus-emph-style = red reverse
+	minus-empty-line-marker-style = red
+	plus-style = green
+	plus-emph-style = green reverse
+	plus-empty-line-marker-style = green
+	whitespace-error-style = yellow reverse
+	line-numbers-minus-style = red
+	line-numbers-zero-style = brightgreen
+	line-numbers-plus-style = green
+	line-numbers-left-style = brightgreen
+	line-numbers-right-style = brightgreen
+	blame-palette = brightblack black

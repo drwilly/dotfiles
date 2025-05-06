@@ -1,0 +1,7 @@
+[merge]
+	tool = meld3
+[mergetool "meld"]
+	cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+	#cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+[mergetool "meld3"]
+	cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED" --diff "$BASE" "$LOCAL" --diff "$BASE" "$REMOTE"
